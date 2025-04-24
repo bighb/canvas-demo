@@ -1,67 +1,29 @@
-<script setup>
-import { ref, onMounted } from 'vue'
-
-const canvasRef = ref(null)
-let ctx = null
-
-const rect = { x: 100, y: 100, width: 200, height: 60, color: '#67c23a' }
-let dragging = false
-let offsetX = 0
-let offsetY = 0
-
-onMounted(() => {
-  ctx = canvasRef.value.getContext('2d')
-  draw()
-})
-
-function draw() {
-  ctx.clearRect(0, 0, 800, 400)
-  ctx.fillStyle = rect.color
-  ctx.fillRect(rect.x, rect.y, rect.width, rect.height)
-}
-
-function getMouse(e) {
-  const box = canvasRef.value.getBoundingClientRect()
-  return {
-    x: e.clientX - box.left,
-    y: e.clientY - box.top,
-  }
-}
-
-function onMouseDown(e) {
-  const { x, y } = getMouse(e)
-  if (isPointInRect(x, y, rect)) {
-    dragging = true
-    offsetX = x - rect.x
-    offsetY = y - rect.y
-  }
-}
-
-function onMouseMove(e) {
-  if (!dragging) return
-  const { x, y } = getMouse(e)
-  rect.x = x - offsetX
-  rect.y = y - offsetY
-  draw()
-}
-
-function onMouseUp() {
-  dragging = false
-}
-
-function isPointInRect(px, py, r) {
-  return px >= r.x && px <= r.x + r.width && py >= r.y && py <= r.y + r.height
-}
-</script>
-
 <template>
-  <canvas
-    ref="canvasRef"
-    width="800"
-    height="400"
-    @mousedown="onMouseDown"
-    @mousemove="onMouseMove"
-    @mouseup="onMouseUp"
-    @mouseleave="onMouseUp"
-  />
+  <div>
+    <div class="route-container">
+      <h2>Navigation Links</h2>
+      <div class="route-links">
+        <router-link to="/" class="route-link">Home</router-link>
+        <router-link to="/TextEdit" class="route-link">TextEdit</router-link>
+        <router-link to="/DraggableView" class="route-link">Draggable</router-link>
+        <router-link to="/contact" class="route-link">Contact</router-link>
+        <router-link to="/profile" class="route-link">Profile</router-link>
+      </div>
+    </div>
+  </div>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    "
+  >
+    <router-view></router-view>
+  </div>
 </template>
+
+<script setup></script>
+
+<style lang="scss" scoped></style>
