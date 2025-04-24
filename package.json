@@ -1,0 +1,39 @@
+{
+  "name": "my-vue3-project",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@hufe921/canvas-editor": "^0.9.107",
+    "@hufe921/canvas-editor-plugin-barcode1d": "0.0.3",
+    "@hufe921/canvas-editor-plugin-barcode2d": "0.0.4",
+    "@hufe921/canvas-editor-plugin-case": "0.0.1",
+    "@hufe921/canvas-editor-plugin-codeblock": "0.0.2",
+    "@hufe921/canvas-editor-plugin-diagram": "0.0.2",
+    "@hufe921/canvas-editor-plugin-docx": "0.0.5",
+    "@hufe921/canvas-editor-plugin-excel": "0.0.1",
+    "@hufe921/canvas-editor-plugin-floating-toolbar": "0.0.4",
+    "canvas": "^3.1.0",
+    "pinia": "^3.0.1",
+    "vue": "3.3.4",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-vue": "~10.0.0",
+    "globals": "^16.0.0",
+    "prettier": "3.5.3",
+    "vite": "^6.2.4",
+    "vite-plugin-vue-devtools": "^7.7.2"
+  }
+}
