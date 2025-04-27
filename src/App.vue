@@ -11,17 +11,9 @@
       </div>
     </div>
   </div>
-  <div
-    style="
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
-    "
-  >
-    <router-view></router-view>
-  </div>
+
+  <router-view></router-view>
+
 </template>
 
 <script setup></script>
